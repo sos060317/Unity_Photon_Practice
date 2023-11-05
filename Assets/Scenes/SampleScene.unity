@@ -132,6 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 39824417}
+  - component: {fileID: 39824418}
   m_Layer: 5
   m_Name: TitleMenu
   m_TagString: Untagged
@@ -160,6 +161,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &39824418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39824416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66fbe916f0151a048803c7741bf70a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuName: title
+  open: 0
 --- !u!1 &230795716
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,6 +892,7 @@ GameObject:
   - component: {fileID: 1257514197}
   - component: {fileID: 1257514196}
   - component: {fileID: 1257514200}
+  - component: {fileID: 1257514201}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -979,6 +995,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be050ee0156b1ce43835c20028c732aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1257514201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257514195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f588a9259e0a1499cab257e51088d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menus:
+  - {fileID: 1708874084}
+  - {fileID: 39824418}
 --- !u!1 &1708874082
 GameObject:
   m_ObjectHideFlags: 0
@@ -988,6 +1019,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1708874083}
+  - component: {fileID: 1708874084}
   m_Layer: 5
   m_Name: LoadingMenu
   m_TagString: Untagged
@@ -1016,6 +1048,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1708874084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708874082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66fbe916f0151a048803c7741bf70a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuName: loading
+  open: 1
 --- !u!1 &1800682878
 GameObject:
   m_ObjectHideFlags: 0

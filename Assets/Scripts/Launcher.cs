@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System.ComponentModel.Design;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
@@ -19,6 +20,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnJoinedLobby()     // Master Server의 Lobby에 들어갔을 때 호출
     {
+        MenuManager.Instance.OpenMenu("title");
         Debug.Log("Joined Lobby");
     }
 
