@@ -10,7 +10,7 @@ public class RoomListItem : MonoBehaviour
 
     RoomInfo info;
 
-    public void SetUp(RoomInfo _info)
+    public void SetUp(RoomInfo _info)       // room에 대한 정보입력
     {
         info = _info;
         text.text = _info.Name;
