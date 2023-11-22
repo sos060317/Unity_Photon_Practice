@@ -6,6 +6,7 @@ using TMPro;
 using Photon.Realtime;
 using UnityEditor;
 using System.Linq;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
@@ -18,6 +19,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     [SerializeField] GameObject roomListItemPrefab;
     [SerializeField] Transform playerListContent;
     [SerializeField] GameObject PlayerListItemPrefab;
+    [SerializeField] GameObject startGameButton;
 
     private void Awake()
     {
@@ -34,6 +36,8 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         Debug.Log("Connected to Master");
         PhotonNetwork.JoinLobby();      // Master Server에 사용중인 room을 나열하고 Lobby에 진입
+        PhotonNetwork.AutomaticallySyncScene = true;     // 마스터 클라이언트와 일반 클라이언트들이 레벨을 동기화할지 결정함
+                                                         //true로 설정하면 마스터 클라이언트에서 LoadLevel()로 레벨을 변경하면 모든 클라이언트들이 자동으로 동일한 레벨을 로드함
     }
 
     public override void OnJoinedLobby()     // Master Server의 Lobby에 들어갔을 때 호출
@@ -60,16 +64,33 @@ public class Launcher : MonoBehaviourPunCallbacks
 
         Player[] players = PhotonNetwork.PlayerList;
 
+        foreach(Transform child in playerListContent)
+        {
+            Destroy(child.gameObject);
+        }
+
         for (int i = 0; i < players.Count(); i++)
         {
             Instantiate(PlayerListItemPrefab, playerListContent).GetComponent<PlayerListItem>().SetUp(players[i]);
         }
+
+        startGameButton.SetActive(PhotonNetwork.IsMasterClient);    // 마스터 클라이언트에게만 보이게 해줌 
+    }
+
+    public override void OnMasterClientSwitched(Player newMasterClient)     // 마스터 클라이언트가 바뀌면
+    {
+        startGameButton.SetActive(PhotonNetwork.IsMasterClient);
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)       // room에 들어가는 것을 실패했을 때 호출
     {
         errorText.text = "Room Creation Failed: " + message;
         MenuManager.Instance.OpenMenu("error");
+    }
+
+    public void StartGame()
+    {
+        PhotonNetwork.LoadLevel(1);     // Build Setting의 1번째 인덱스 씬을 로드함
     }
 
     public void LeaveRoom()
@@ -106,7 +127,9 @@ public class Launcher : MonoBehaviourPunCallbacks
         }
         for(int i = 0; i < roomList.Count; i++)
         {
-            Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);
+            if (roomList[i].RemovedFromList)    // 해당 room이 제거되었는지 확인
+                continue;       // 제거됨
+            Instantiate(roomListItemPrefab, roomListContent).GetComponent<RoomListItem>().SetUp(roomList[i]);       // 제거되지 않음
         }
     }
 
