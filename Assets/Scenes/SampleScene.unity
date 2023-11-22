@@ -2744,7 +2744,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1257514201}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: CloseMenu
+        m_MethodName: OpenMenu
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 39824418}
