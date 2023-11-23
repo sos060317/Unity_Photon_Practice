@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,13 +16,28 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody rigid;
 
+    PhotonView PV;
+
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
+        PV = GetComponent<PhotonView>();
+    }
+
+    private void Start()
+    {
+        if (!PV.IsMine)
+        {
+            Destroy(GetComponentInChildren<Camera>().gameObject);
+            Destroy(rigid);
+        }
     }
 
     private void Update()
     {
+        if (!PV.IsMine)
+            return;
+
         Look();
         Move();
         Jump();
@@ -59,6 +75,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!PV.IsMine)
+            return;
+
         rigid.MovePosition(rigid.position + transform.TransformDirection(moveAmount) * Time.fixedDeltaTime);
     }
 }
