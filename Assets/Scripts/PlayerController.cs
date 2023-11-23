@@ -131,13 +131,17 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             Hashtable hash = new Hashtable();
             hash.Add("itemIndex", itemIndex);
-            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);    // 플레이어의 무기 변경관련 해쉬테이블을 Set해줌
         }
     }
 
-    public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)      // 해쉬테이블의 값이 변경될 때 호됨
     {
-        //if(!PV.IsMine && )
+        // 상대방의 무기변경을 자신에게도 보여주는 코드
+        if(!PV.IsMine && targetPlayer == PV.Owner)
+        {
+            EquipItem((int)changedProps["itemIndex"]);
+        }
     }
 
     public void SetGroundedState(bool _grounded)
