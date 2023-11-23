@@ -26,7 +26,7 @@ public class Launcher : MonoBehaviourPunCallbacks
         Instance = this;
     }
 
-    void Start()
+    private void Start()
     {
         Debug.Log("Connecting to Master");
         PhotonNetwork.ConnectUsingSettings();       // Photon Server Setting 파일에 입력된 설정대로 Photon에 연결함
