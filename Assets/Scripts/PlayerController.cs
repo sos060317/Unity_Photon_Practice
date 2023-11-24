@@ -134,8 +134,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
             PhotonNetwork.LocalPlayer.SetCustomProperties(hash);    // 플레이어의 무기 변경관련 해쉬테이블을 Set해줌
         }
     }
-
-    public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)      // 해쉬테이블의 값이 변경될 때 호됨
+    /// <summary>
+    /// 
+    /// </summary> // 사용자 지정 속성 = SetCustomProperties(); 이라고 불리는 것?
+    /// <param name="targetPlayer"></param> // 사용자 지정 속성이 업데이트된 플레이어
+    /// <param name="changedProps"></param> // 업데이트가된 사용자 지정 속성을 담은 Hashtable
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)      
     {
         // 상대방의 무기변경을 자신에게도 보여주는 코드
         if(!PV.IsMine && targetPlayer == PV.Owner)
