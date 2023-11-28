@@ -414,7 +414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8803314287478544045}
-  - component: {fileID: 4696145796980797202}
+  - component: {fileID: 4660489928695048280}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -438,7 +438,7 @@ Transform:
   m_Father: {fileID: 67706944440660948}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4696145796980797202
+--- !u!114 &4660489928695048280
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -447,11 +447,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6309515953957864846}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdccabb507d880b459b6a2059dd7ada9, type: 3}
+  m_Script: {fileID: 11500000, guid: fb356c2bdc21d6340880147c29d53663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemInfo: {fileID: 11400000, guid: b547a67f5f828d54992a284262a07f51, type: 2}
   itemGameObject: {fileID: 835286734383460193}
+  cam: {fileID: 1551859512929961711}
 --- !u!1 &6642720128572547817
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,8 +664,8 @@ MonoBehaviour:
   jumpForce: 300
   smoothTime: 0.15
   items:
-  - {fileID: 4696145796980797202}
-  - {fileID: 1331939513016821799}
+  - {fileID: 4660489928695048280}
+  - {fileID: 793044869090618592}
 --- !u!1 &8972376228289159704
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +675,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2560330636719715597}
-  - component: {fileID: 1331939513016821799}
+  - component: {fileID: 793044869090618592}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -698,7 +699,7 @@ Transform:
   m_Father: {fileID: 67706944440660948}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1331939513016821799
+--- !u!114 &793044869090618592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -707,8 +708,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8972376228289159704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdccabb507d880b459b6a2059dd7ada9, type: 3}
+  m_Script: {fileID: 11500000, guid: fb356c2bdc21d6340880147c29d53663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemInfo: {fileID: 11400000, guid: 7bc1ffbbb95f6cc4d8b44ba7b375566f, type: 2}
   itemGameObject: {fileID: 2094309394720012630}
+  cam: {fileID: 1551859512929961711}

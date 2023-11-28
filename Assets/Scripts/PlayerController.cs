@@ -84,6 +84,11 @@ public class PlayerController : MonoBehaviourPunCallbacks
                 EquipItem(itemIndex - 1); 
             }
         }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            items[itemIndex].Use();
+        }
     }
 
     private void Look()
@@ -131,14 +136,15 @@ public class PlayerController : MonoBehaviourPunCallbacks
         {
             Hashtable hash = new Hashtable();
             hash.Add("itemIndex", itemIndex);
-            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);    // 플레이어의 무기 변경관련 해쉬테이블을 Set해줌
+            //함수를 통하여 네트워크 상의 다른 플레이어들에게 전달됨
+            PhotonNetwork.LocalPlayer.SetCustomProperties(hash);
         }
     }
     /// <summary>
-    /// 
-    /// </summary> // 사용자 지정 속성 = SetCustomProperties(); 이라고 불리는 것?
-    /// <param name="targetPlayer"></param> // 사용자 지정 속성이 업데이트된 플레이어
-    /// <param name="changedProps"></param> // 업데이트가된 사용자 지정 속성을 담은 Hashtable
+    /// 다른 플레이어의 프로퍼티가 바뀌면 호출되는 콜백함수
+    /// </summary>
+    /// <param name="targetPlayer"></param> // 사용자 지정 속성(프로퍼티)이 업데이트된 플레이어
+    /// <param name="changedProps"></param> // 업데이트가된 사용자 지정 속성(프로퍼티)을 담은 Hashtable
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)      
     {
         // 상대방의 무기변경을 자신에게도 보여주는 코드
