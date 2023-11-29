@@ -29,10 +29,14 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
     private const float maxHealth = 100f;
     private float currentHealth = maxHealth;
 
+    PlayerManager playerManager;
+
     private void Awake()
     {
         rigid = GetComponent<Rigidbody>();
         PV = GetComponent<PhotonView>();
+
+        playerManager = PhotonView.Find((int)PV.InstantiationData[0]).GetComponent<PlayerManager>();
     }
 
     private void Start()
@@ -92,6 +96,11 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
         if (Input.GetMouseButtonDown(0))
         {
             items[itemIndex].Use();
+        }
+
+        if (transform.position.y < -10f)    // 플레이어가 일정 이하로 떨어지면 죽음
+        {
+            Die();
         }
     }
 
@@ -183,5 +192,15 @@ public class PlayerController : MonoBehaviourPunCallbacks, IDamageable
             return;
 
         currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        playerManager.Die();
     }
 }
