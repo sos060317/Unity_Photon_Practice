@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,5 +20,11 @@ public class SingleShotGun : Gun
         {
             hit.collider.gameObject.GetComponent<IDamageable>()?.TakeDamage(((GunInfo)itemInfo).damage);
         }
+    }
+
+    [PunRPC]
+    private void RPC_Shoot(Vector3 hitPosition)
+    {
+
     }
 }

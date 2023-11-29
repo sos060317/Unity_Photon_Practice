@@ -332,6 +332,7 @@ GameObject:
   - component: {fileID: 8922745543369235755}
   - component: {fileID: 1551859512929961711}
   - component: {fileID: 2673350950030452555}
+  - component: {fileID: 4383904547411893283}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -405,6 +406,66 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5461579302456912262}
   m_Enabled: 1
+--- !u!114 &4383904547411893283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461579302456912262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 0}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &6309515953957864846
 GameObject:
   m_ObjectHideFlags: 0
@@ -415,6 +476,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8803314287478544045}
   - component: {fileID: 4660489928695048280}
+  - component: {fileID: 3543096429933395966}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -453,6 +515,28 @@ MonoBehaviour:
   itemInfo: {fileID: 11400000, guid: b547a67f5f828d54992a284262a07f51, type: 2}
   itemGameObject: {fileID: 835286734383460193}
   cam: {fileID: 1551859512929961711}
+--- !u!114 &3543096429933395966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6309515953957864846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &6642720128572547817
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +760,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2560330636719715597}
   - component: {fileID: 793044869090618592}
+  - component: {fileID: 3922373487315499141}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -714,3 +799,25 @@ MonoBehaviour:
   itemInfo: {fileID: 11400000, guid: 7bc1ffbbb95f6cc4d8b44ba7b375566f, type: 2}
   itemGameObject: {fileID: 2094309394720012630}
   cam: {fileID: 1551859512929961711}
+--- !u!114 &3922373487315499141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8972376228289159704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
