@@ -514,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemInfo: {fileID: 11400000, guid: b547a67f5f828d54992a284262a07f51, type: 2}
   itemGameObject: {fileID: 835286734383460193}
+  bulletImpactPrefab: {fileID: 1072932595672244207, guid: 25c3de84c8a926c4a9854938d20abf36, type: 3}
   cam: {fileID: 1551859512929961711}
 --- !u!114 &3543096429933395966
 MonoBehaviour:
@@ -798,6 +799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemInfo: {fileID: 11400000, guid: 7bc1ffbbb95f6cc4d8b44ba7b375566f, type: 2}
   itemGameObject: {fileID: 2094309394720012630}
+  bulletImpactPrefab: {fileID: 1072932595672244207, guid: 25c3de84c8a926c4a9854938d20abf36, type: 3}
   cam: {fileID: 1551859512929961711}
 --- !u!114 &3922373487315499141
 MonoBehaviour:
