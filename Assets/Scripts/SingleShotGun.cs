@@ -33,7 +33,11 @@ public class SingleShotGun : Gun
     [PunRPC]
     private void RPC_Shoot(Vector3 hitPosition, Vector3 hitNormal)
     {
-        Instantiate(bulletImpactPrefab, hitPosition, Quaternion.LookRotation(hitNormal, Vector3.up) * bulletImpactPrefab.transform.rotation);
-        //Instantiate(bulletImpactPrefab, hitPosition, Quaternion.LookRotation(hitNormal) * bulletImpactPrefab.transform.rotation);
+        Collider[] colliders = Physics.OverlapSphere(hitPosition, 0.3f);
+        if(colliders.Length != 0)
+        {
+            Instantiate(bulletImpactPrefab, hitPosition + hitNormal * 0.001f,
+                Quaternion.LookRotation(hitNormal, Vector3.up) * bulletImpactPrefab.transform.rotation);
+        }
     }
 }
